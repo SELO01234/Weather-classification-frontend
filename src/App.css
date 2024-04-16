@@ -1,0 +1,17 @@
+.dragndrop {
+  height: 50%;
+  text-align: center;
+  align-content: center;
+  border: 2px dashed grey;
+}
+
+.dragndrop.dragActive {
+  background-color: rgb(255, 255, 255);
+  border-color: rgba(232, 232, 232, 0.656);
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
