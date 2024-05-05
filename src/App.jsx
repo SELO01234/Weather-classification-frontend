@@ -9,6 +9,8 @@ import Box from '@mui/material/Box';
 import { Routes, Route } from 'react-router-dom'
 import NotFoundPage from './pages/NotFoundPage';
 import NavBar from './components/NavBar';
+import YearGuesserPage from './pages/YearGuesserPage';
+import HomePage from './pages/HomePage';
 
 const lightTheme = createTheme({
   palette: {
@@ -36,7 +38,10 @@ const App = () => {
       <Box>
         <NavBar />
         <Routes>
-          <Route path='/' element={<ImageGuesserPage />} />
+          <Route path='/' element={<HomePage />} />
+          <Route path='/home' element={<HomePage />} />
+          <Route path='/image/guess' element={<ImageGuesserPage />} />
+          <Route path='/year/guess' element={<YearGuesserPage />} />
           <Route path='*' element={<NotFoundPage />} />
         </Routes>
       </Box>
