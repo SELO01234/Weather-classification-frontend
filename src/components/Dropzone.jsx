@@ -50,7 +50,7 @@ const Dropzone = () => {
                         <Typography sx={{ color: '#784af4' }}>Drop the file here ...</Typography> :
                         <Box>
                             <CloudUploadIcon color='violet' />
-                            <Typography sx={{ color: '#784af4' }}>Drag 'n' drop a file here, or click to select file</Typography>
+                            <Typography sx={{ color: '#784af4' }}>Drag 'n' drop a file here, or click to select file to start</Typography>
                         </Box>
                 }
             </Box>

@@ -9,9 +9,10 @@ import StepConnector, { stepConnectorClasses } from '@mui/material/StepConnector
 import Check from '@mui/icons-material/Check';
 import { styled } from '@mui/material/styles';
 import PropTypes from 'prop-types';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { FileContext } from '../contexts/FileContext';
 
-const steps = ['upload your image', 'generate result', 'return'];
+const steps = ['upload your image', 'generate result'];
 
 const QontoConnector = styled(StepConnector)(({ theme }) => ({
     [`&.${stepConnectorClasses.alternativeLabel}`]: {
@@ -86,6 +87,9 @@ QontoStepIcon.propTypes = {
 };
 
 const CustomStepper = ({ activeStep, setActiveStep }) => {
+
+    const { files, setFiles } = useContext(FileContext)
+
     const [skipped, setSkipped] = useState(new Set());
 
     const isStepSkipped = (step) => {
@@ -110,6 +114,10 @@ const CustomStepper = ({ activeStep, setActiveStep }) => {
     const handleReset = () => {
         setActiveStep(0);
     };
+
+    const handleFileClear = () => {
+        setFiles([]);
+    }
 
     return (
         <Box sx={{ width: '100%' }}>
@@ -149,8 +157,10 @@ const CustomStepper = ({ activeStep, setActiveStep }) => {
                         >
                             Back
                         </Button>
+                        {activeStep === 0 ?
+                            <Button color='violet' onClick={handleFileClear} disabled={files.length <= 0}>Reset Images</Button> : <div></div>}
                         <Box sx={{ flex: '1 1 auto' }} />
-                        <Button onClick={handleNext} color='violet'>
+                        <Button onClick={handleNext} color='violet' disabled={files.length <= 0}>
                             {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                         </Button>
                     </Box>
