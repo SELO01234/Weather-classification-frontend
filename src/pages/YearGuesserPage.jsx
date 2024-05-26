@@ -1,7 +1,21 @@
 import { Box, Stack } from '@mui/material'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import ParameterTable from '../components/ParameterTable'
+import { RecordContext } from '../contexts/RecordContext';
+import YearPageStepper from '../components/YearPageStepper';
+import YearResultPage from '../components/YearResultPage';
 
 const YearGuesserPage = () => {
+    const [activeStep, setActiveStep] = useState(0);
+    const [page, setPage] = useState();
+    const [rows, setRows] = useState([]);
+
+    useEffect(() => {
+        setPage(pages[activeStep])
+    }, [activeStep])
+
+    const pages = [<ParameterTable key='parameterTable' />, <YearResultPage key='yearResult' />]
+
     return (
         <Box
             display='flex'
@@ -22,7 +36,7 @@ const YearGuesserPage = () => {
                     lg: '100%',
                 },
             }}>
-            <Stack border={1} spacing={2} sx={{
+            <Stack spacing={2} sx={{
                 width: {
                     xs: 300,
                     sm: 500,
@@ -36,7 +50,10 @@ const YearGuesserPage = () => {
                     lg: 700,
                 }
             }}>
-                Year Guesser Page
+                <RecordContext.Provider value={{ rows, setRows }}>
+                    <YearPageStepper activeStep={activeStep} setActiveStep={setActiveStep} />
+                    {page}
+                </RecordContext.Provider>
             </Stack>
         </Box>
     )

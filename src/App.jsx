@@ -13,6 +13,20 @@ import YearGuesserPage from './pages/YearGuesserPage';
 import HomePage from './pages/HomePage';
 
 const lightTheme = createTheme({
+  components: {
+    MuiDataGrid: {
+      styleOverrides: {
+        row: {
+          "&.Mui-selected": {
+            backgroundColor: alpha('#784af4', 0.5),
+            "&:hover": {
+              backgroundColor: alpha('#784af4', 0.5)
+            }
+          }
+        }
+      }
+    }
+  },
   palette: {
     violet: {
       main: '#784af4',
