@@ -27,7 +27,34 @@ function CustomToolbar(props) {
     const handleClick = () => {
         const id = temp;
         ++temp;
-        setRows((oldRows) => [...oldRows, { id, lastName: '', firstName: '', age: '', isNew: true }]);
+        setRows((oldRows) => [...oldRows, {
+            id,
+            tempmax: '',
+            tempmin: '',
+            temp: '',
+            feelslike: '',
+            feelslikemin: '',
+            feelslikemax: '',
+            dew: '',
+            humidity: '',
+            precip: '',
+            precipprob: '',
+            precipcover: '',
+            snow: '',
+            snowdepth: '',
+            windgust: '',
+            windspeed: '',
+            winddir: '',
+            sealevelpressure: '',
+            cloudcover: '',
+            visibility: '',
+            solarradiation: '',
+            solarenergy: '',
+            uvindex: '',
+            moonphase: '',
+            icon: '',
+            isNew: true
+        }]);
         setRowModesModel((oldModel) => ({
             ...oldModel,
             [id]: { mode: GridRowModes.Edit, fieldToFocus: 'name' },
@@ -100,23 +127,30 @@ const ParameterTable = () => {
     };
 
     const columns = [
-        { field: 'firstName', headerName: 'First name', width: 130, editable: true, },
-        { field: 'lastName', headerName: 'Last name', width: 130, editable: true, },
-        {
-            field: 'age',
-            headerName: 'Age',
-            type: 'number',
-            editable: true,
-            width: 90,
-        },
-        {
-            field: 'fullName',
-            headerName: 'Full name',
-            description: 'This column has a value getter and is not sortable.',
-            sortable: false,
-            width: 160,
-            valueGetter: (value, row) => `${row.firstName || ''} ${row.lastName || ''}`,
-        },
+        { field: 'tempmax', headerName: 'Max Temp', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'tempmin', headerName: 'Min Temp', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'temp', headerName: 'Temp', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'feelslikemax', headerName: 'Max Feels Like', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'feelslikemin', headerName: 'Min Feels Like', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'feelslike', headerName: 'Feels Like', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'dew', headerName: 'Dew', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'humidity', headerName: 'Humidity', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'precip', headerName: 'Precip', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'precipprob', headerName: 'Precip Prob', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'precipcover', headerName: 'Precip Cover', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'snow', headerName: 'Snow', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'snowdepth', headerName: 'Snow Depth', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'windgust', headerName: 'Wind Gust', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'windspeed', headerName: 'Wind Speed', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'winddir', headerName: 'Wind Dir', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'sealevelpressure', headerName: 'Sea Level Pressure', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'cloudcover', headerName: 'Cloud Cover', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'visibility', headerName: 'Visibility', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'solarradiation', headerName: 'Solar Radiation', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'solarenergy', headerName: 'Solar Energy', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'uvindex', headerName: 'UV Index', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'moonphase', headerName: 'Moon Phase', width: 130, editable: true, sortable: true, type: 'number' },
+        { field: 'icon', headerName: 'Weather', width: 130, editable: true, sortable: true, type: 'string' },
         {
             field: 'actions',
             type: 'actions',
