@@ -19,7 +19,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Close';
 import { RecordContext } from '../contexts/RecordContext';
 
-let temp = 10;
+let temp = 1;
 
 function CustomToolbar(props) {
     const { setRows, setRowModesModel } = props;
@@ -42,7 +42,6 @@ function CustomToolbar(props) {
             precipcover: '',
             snow: '',
             snowdepth: '',
-            windgust: '',
             windspeed: '',
             winddir: '',
             sealevelpressure: '',
@@ -52,7 +51,6 @@ function CustomToolbar(props) {
             solarenergy: '',
             uvindex: '',
             moonphase: '',
-            icon: '',
             isNew: true
         }]);
         setRowModesModel((oldModel) => ({
@@ -127,6 +125,7 @@ const ParameterTable = () => {
     };
 
     const columns = [
+        { field: 'id', headerName: 'id', width: 130, editable: false, sortable: true, type: 'number' },
         { field: 'tempmax', headerName: 'Max Temp', width: 130, editable: true, sortable: true, type: 'number' },
         { field: 'tempmin', headerName: 'Min Temp', width: 130, editable: true, sortable: true, type: 'number' },
         { field: 'temp', headerName: 'Temp', width: 130, editable: true, sortable: true, type: 'number' },
@@ -140,7 +139,6 @@ const ParameterTable = () => {
         { field: 'precipcover', headerName: 'Precip Cover', width: 130, editable: true, sortable: true, type: 'number' },
         { field: 'snow', headerName: 'Snow', width: 130, editable: true, sortable: true, type: 'number' },
         { field: 'snowdepth', headerName: 'Snow Depth', width: 130, editable: true, sortable: true, type: 'number' },
-        { field: 'windgust', headerName: 'Wind Gust', width: 130, editable: true, sortable: true, type: 'number' },
         { field: 'windspeed', headerName: 'Wind Speed', width: 130, editable: true, sortable: true, type: 'number' },
         { field: 'winddir', headerName: 'Wind Dir', width: 130, editable: true, sortable: true, type: 'number' },
         { field: 'sealevelpressure', headerName: 'Sea Level Pressure', width: 130, editable: true, sortable: true, type: 'number' },
@@ -150,7 +148,6 @@ const ParameterTable = () => {
         { field: 'solarenergy', headerName: 'Solar Energy', width: 130, editable: true, sortable: true, type: 'number' },
         { field: 'uvindex', headerName: 'UV Index', width: 130, editable: true, sortable: true, type: 'number' },
         { field: 'moonphase', headerName: 'Moon Phase', width: 130, editable: true, sortable: true, type: 'number' },
-        { field: 'icon', headerName: 'Weather', width: 130, editable: true, sortable: true, type: 'string' },
         {
             field: 'actions',
             type: 'actions',

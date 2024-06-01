@@ -33,6 +33,9 @@ const lightTheme = createTheme({
       light: alpha('#784af4', 0.5),
       dark: alpha('#784af4', 0.9),
     },
+    suncolor: {
+      main: '#FFDF22'
+    },
     closebutton: {
       main: '#f0f2f5',
       light: alpha('#f0f2f5', 0.5),
