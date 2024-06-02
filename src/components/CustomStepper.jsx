@@ -1,5 +1,6 @@
 import { } from '@mui/material'
 import Box from '@mui/material/Box';
+import FolderZipIcon from '@mui/icons-material/FolderZip';
 import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
@@ -119,6 +120,10 @@ const CustomStepper = ({ activeStep, setActiveStep }) => {
         setFiles([]);
     }
 
+    const handleZipDownload = () => {
+        //to-do
+    }
+
     return (
         <Box sx={{ width: '100%' }}>
             <Stepper activeStep={activeStep} sx={{ marginTop: 2 }} connector={<QontoConnector />}>
@@ -159,6 +164,9 @@ const CustomStepper = ({ activeStep, setActiveStep }) => {
                         </Button>
                         {activeStep === 0 ?
                             <Button color='violet' onClick={handleFileClear} disabled={files.length <= 0}>Reset Images</Button> : <div></div>}
+                        <Box sx={{ flex: '1 1 auto' }} />
+                        {activeStep === 1 ?
+                            <Button color='violet' onClick={handleZipDownload} startIcon={<FolderZipIcon />}>Download ZIP</Button> : <div></div>}
                         <Box sx={{ flex: '1 1 auto' }} />
                         <Button onClick={handleNext} color='violet' disabled={files.length <= 0}>
                             {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
